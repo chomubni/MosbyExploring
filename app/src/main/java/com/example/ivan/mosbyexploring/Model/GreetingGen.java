@@ -9,7 +9,7 @@ import android.os.AsyncTask;
 public class GreetingGen extends AsyncTask<Void,Void,Void> {
 
     private String baseText;
-    private GreetingTaskListener listener;
+    public GreetingTaskListener listener;
 
     public GreetingGen(String greeting, GreetingTaskListener listener){
         baseText = greeting;
@@ -19,15 +19,15 @@ public class GreetingGen extends AsyncTask<Void,Void,Void> {
     @Override
     protected Void doInBackground(Void... voids) {
         try {
-            Thread.sleep(2000);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         return null;
     }
 
-    interface GreetingTaskListener{
-        public void onGreetingGenerated(String greetingText);
+    public interface GreetingTaskListener{
+        void onGreetingGenerated(String greetingText);
     }
 
     @Override
